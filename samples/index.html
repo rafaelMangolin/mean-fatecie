@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exemplos Uningá</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <style>
+      .margin-top {
+        margin-top: 2.5%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="col-md-4 col-md-offset-4  margin-top" ng-app="app.sample">
+      <div ng-controller="SampleController">
+        <form novalidate name="SampleForm">
+          <div ng-class="{'form-group':SampleForm.filter.$pristine,'form-group has-success': SampleForm.filter.$dirty}">
+            <label for="filter">Pesquisa</label>
+            <input id="filter" type="text" name="filter" class="form-control " ng-model="listFilter" required />
+            <span ng-show="!listFilter.length || SampleForm.filter.$pristine">Pesquise algo.</span>
+          </div>
+        </form>
+        <ul class="list-group margin-top" >
+          <li ng-repeat="language in languages | filter:listFilter" class="list-group-item">
+            <div><strong>{{language.name}}</strong></div>
+            <span ng-repeat="usada in language.usadaPara | filter:listFilter">
+              <span class="{{changeColor(usada)}}"> {{usada}}</span>
+            </span>
+          </li>
+        </ul>
+        <div counter ng-model="counter">
+
+        </div>
+      </div>
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script>
+      angular.module('app.sample',[])
+      .controller('SampleController', ['$scope','ApiService',function($scope,ApiService){
+        $scope.counter = 0;
+        ApiService
+        .getLanguages()
+        .then(function(result){
+          $scope.languages = result.data;
+        })
+        $scope.changeColor  = function(val){
+          switch (val) {
+            case 'Backend':
+              return 'label label-success';
+              break;
+            case 'FrontEnd':
+              return 'label label-info';
+              break;
+            case 'Ser lenta':
+              return 'label label-danger';
+              break;
+            default:
+              return 'label label-default';
+          }
+        }
+      }])
+      .directive('counter',function(){
+        return {
+          restrict: 'EA',
+          scope: {
+            ngModel: '='
+          },
+          templateUrl: './template.html',
+          link: function(scope,elm,attrs){
+            scope.more = function(){
+              scope.ngModel++;
+            }
+            scope.less = function(){
+              scope.ngModel--;
+            }
+          }
+        }
+      })
+      .service('ApiService',['$http',function($http){
+        this.getLanguages = function(){
+          return $http.get('./languages.json');
+        }
+      }])
+    </script>
+  </body>
+</html>

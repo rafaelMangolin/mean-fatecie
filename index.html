@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AngularJS Uningá</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal" ng-app="app.databinding.sample">
+		<div class="slides" ng-controller="SampleController">
+			<section>
+				<h2>Atualizando Sistemas Web com AngularJS</h2>
+				<p><a>@opsigor</a> | <a>@guiseek</a> | <a>@rafaelMangolin</a></p>
+			</section>
+			<section>
+				<h3>O que é AngularJS?</h3>
+				<p>Framework mantido pela Google, utilizado para criar aplicações
+					<strong>Single Page</strong>. Além disso, permite ao programador criar suas próprias tags e atributos HTML.
+				</p>
+				<aside class="notes">
+					<p>As SPAs são aplicações completas, desenvolvidas em JavaScript, que funcionam quase como se estivessem sendo executadas nativamente no desktop. Não tem reload</p>
+				</aside>
+			</section>
+			<section>
+				<section>
+					<h2>Características do AngularJS</h2>
+				</section>
+				<section>
+					<h3>Modularização</h3>
+					<img src="imgs/modules.svg" alt="">
+					<aside class="notes">
+						<p> - Estrutura de diretorios, como é organizado
+							<br> - Sub-modulos e dependências
+							<br> - Reuso de modulos em varas partes do projetos
+							<br> - MVWE angular, onde fica o que
+						</p>
+					</aside>
+				</section>
+				<section>
+					<h3><i>Controllers</i></h3>
+					<span data-markdown>
+						```js angular.module('app.principal',[]) .controller('MainController',['$scope',function($scope){ //Código aqui }]) ``` ```html &lt;div ng-controller=&quot;MainController&quot;&gt; &lt;!-- Html aqui--&gt; &lt;/div&gt; ```
+					</span>
+					<aside class="notes">
+						<p>- Controller trabalha como um gerenciador de dados entre a view e a service
+							<br> - Guarda a logica de apresentação dos dados na view
+							<br> - Trata da interações da view
+							<br>
+						</p>
+					</aside>
+
+				</section>
+
+				<section>
+					<h3><i>Services</i></h3>
+					<span data-markdown>
+						```js angular.module('app.principal',[]) .service('MainService',['$http',function($http){ //Código aqui }]) ```
+					</span>
+					<aside class="notes">
+						<p>- Responsável pelas requisições com APIs
+							<br> - Envia chamadas
+							<br> - Retorna dados
+						</p>
+					</aside>
+
+
+				</section>
+
+				<section>
+					<h3>Injeção de Dependência</h3>
+					<p>Modo com que o Angular faz sua modularização.</p>
+					<span data-markdown>
+						```js angular.module('app.principal', ['app.marketing', 'app.financeiro', 'app.desenvolvimento' ]) ```
+					</span>
+					<aside class="notes">
+						<p>- Possibilita o reuso de serviços entre módulos
+							<br> -
+						</p>
+					</aside>
+				</section>
+				<section>
+					<h3>2 way Data Binding</h3>
+					<input type="text" ng-model="nome" style="width: 50%;height: 30px" />
+					<p>Olá, {{ nome}}!</p>
+					<aside class="notes">
+						<p>- Atualização instantânea entre model e view
+							<br> controller $scope
+							<br> ngModel
+							<br> view
+							<br>
+						</p>
+					</aside>
+				</section>
+				<section>
+					<h3>Directives</h3>
+					<p>Modo com o que o programador pode definir suas próprias tags e atributos HTML.</p>
+					<aside class="notes">
+						<p>ngApp: inicia o modulo principal do angular
+							<br> ngController: Associa o controller com o html
+							<br> ngRoute: controle de rotas angular
+							<br> ngModel: two way data binding
+							<br> ngRepeat: forEach no html
+							<br> ngShow/Hide: esconde ou não html
+							<br> tipos de diretivas:ACE e comentario
+							<br>
+						</p>
+					</aside>
+				</section>
+				<section>
+					<h3>Testes Unitários</h3>
+					<aside class="notes">
+						<p>Karma
+							<br> Jasmine
+							<br> Porque testar?
+						</p>
+					</aside>
+				</section>
+			</section>
+			<section>
+				<h3>Exemplos</h3>
+			</section>
+			<section>
+				<section>
+					<h3>Porquê apostar no AngularJS?</h3>
+				</section>
+				<section>
+					<h3>Quantidade de pesquisas no google sobre o assunto.</h3>
+					<img src="imgs/graph-angular.png" alt="">
+				</section>
+				<section>
+					<h3>O campo de trabalho é grande.</h3>
+					<img src="imgs/jobs.png" style="width:50%" alt="">
+				</section>
+				<section>
+					<h3>Conferências inteiras dedicadas ao AngularJS</h3>
+					<img src="imgs/conf.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Onde aprender AngularJS?</h3>
+				</section>
+				<section>
+					<h3>AngularJS API Docs</h3>
+					<a href="https://docs.angularjs.org/api">
+						<img src="imgs/AngularJS-API-Docs.png" alt="AngularJS API Docs" />
+					</a>
+				</section>
+				<section>
+					<h3>Desenvolvendo com AngularJS</h3>
+					<a href="#">
+						<img src="imgs/livro-angularjs.jpg" alt="Livro Desenvolvendo com AngularJS" />
+					</a>
+				</section>
+				<section>
+					<h3>Precisa de mais?</h3>
+					<a href="#">
+						<img src="imgs/google-angularjs.png" alt="Google AngularJS" />
+					</a>
+				</section>
+			</section>
+			<section>
+				<h3>Perguntas</h3>
+			</section>
+			<section>
+				<h3>
+					Slides
+				</h3>
+				<p><a href="http://bit.ly/uninga-angular">bit.ly/uninga-angular</a></p>
+				<h2>Obrigado!</h2>
+			</section>
+		</div>
+
+	</div>
+	<script src="angular.min.js"></script>
+	<script>
+		angular.module('app.databinding.sample', [])
+			.controller('SampleController', function($scope) {
+				$scope.nome = 'Uningá';
+				$scope.oi = [
+					'oi',
+					'tudo',
+					'bem',
+					'com',
+					'vc'
+				]
+			})
+	</script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [{
+				src: 'lib/js/classList.js',
+				condition: function() {
+					return !document.body.classList;
+				}
+			}, {
+				src: 'plugin/markdown/marked.js',
+				condition: function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: 'plugin/markdown/markdown.js',
+				condition: function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				condition: function() {
+					return !!document.querySelector('pre code');
+				},
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src: 'plugin/zoom-js/zoom.js',
+				async: true
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}]
+		});
+	</script>
+
+</body>
+
+</html>

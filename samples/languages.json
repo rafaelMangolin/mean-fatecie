@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Javascript",
+    "usadaPara": ["Backend","FrontEnd","TUDO"]
+  }, {
+    "name": "Java",
+    "usadaPara": ["Backend","Ser lenta"]
+  },
+  {
+    "name": "PHP",
+    "usadaPara": ["Wordpress","FrontEnd","Backend"]
+  },{
+    "name": "Ruby",
+    "usadaPara": ["Backend"]
+  }, {
+    "name": "C++",
+    "usadaPara": ["Aplicações Científicas", "Backend"]
+  }
+]
