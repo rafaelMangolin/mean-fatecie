@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AngularJS Uningá</title>
+	<title>MEAN Fatecie</title>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,8 +32,74 @@
 	<div class="reveal" ng-app="app.databinding.sample">
 		<div class="slides" ng-controller="SampleController">
 			<section>
-				<h2>Atualizando Sistemas Web com AngularJS</h2>
-				<p><a>@opsigor</a> | <a>@guiseek</a> | <a>@rafaelMangolin</a></p>
+				<section>
+					<h2>MEAN</h2>
+					<h4>Mongo, Express, Angular e Node</h4>
+					<p>
+						Aplicação JavaScript em todas camadas (fullstack)
+					</p>
+					<p>
+						<a href="https://github.com/opsigor">@opsigor</a> | <a href="https://github.com/guiseek">@guiseek</a> | <a href="https://github.com/rafaelMangolin">@rafaelMangolin</a>
+					</p>
+				</section>
+				<section>
+					<h3>Mongo</h3>
+					<p>
+						Banco NoSQL mais popular atualmente, proporciona escalabilidade e performance.
+					</p>
+				</section>
+				<section>
+					<h3>Express</h3>
+					<p>
+						Framework Node.js (backend) robusto e flexível para aplicações web.
+					</p>
+				</section>
+				<section>
+					<h3>NodeJS</h3>
+					<p>
+						Framework JavaScript (frontend) para aplicações web SPA (Single Page Applications).
+					</p>
+				</section>
+				<section>
+					<h3>NodeJS</h3>
+					<p>
+						Plataforma construída para aplicações de rede, velozes e facilmente escaláveis.
+					</p>
+				</section>
+			</section>
+			<section>
+			<section>
+				<h3>MongoDB</h3>
+				<p>MongoDB é uma aplicação de código aberto, de alta performance, sem esquemas, orientado a documentos. Foi escrito na linguagem de programação C++. Além de orientado a documentos, é formado por um conjunto de documentos JSON.</p>
+			</section>
+			<section>
+				<h3>Comandos Gerais</h3>
+				<p>
+					- use <DATA_BASE> : é usado para criar um banco, caso ele não exista<br>
+					- show dbs : imprime a lista de todos os bancos no <i>server</i><br>
+					- show collections: imprime a lista de todos as <i>collections</i> no atual banco<br>
+					- coll = db.<COLLECTION_NAME> : atribui uma <i>collection</i> do banco a uma variável para ser usado para pesquisas
+				</p>
+			</section>
+			<section>
+				<h3>Comando <i>find()</i></h3>
+				<p>
+					- db.collection.find(query, projection) ou coll.find()<br>
+					- <i>query</i>: objeto que define criterios de seleção para o <i>find</i> usando <i>queryOperators</i><br>
+							Exemplo: {field1:{$gt:12}}<br>
+					- <i>Projection</i>: objeto que especifica os campos que serão retornados no <i>find</i><br>
+							Exemplos: {field1:true,field2:false}
+				</p>
+				</section>
+				<section>
+					<h3>Comandos <i>insert()</i>, <i>update()</i>, <i>save()</i> e <i>remove()</i></h3>
+					<p>
+						- <i>coll.insert()</i>: insere um ou varios documentos em determinada <i>collection</i><br>
+						- <i>coll.update()</i>: atualiza um ou muitos documentos de uma determinada <i>collection</i><br>
+						- <i>coll.save()</i>: atualizar ou insere um novo documento, dependendo dos paramentros do documento<br>
+						- <i>coll.remove()</i>: remove documentos da coleção dada o parametro <i>"query"</i> no mesmo formato do <i>find()</i><br>
+					</p>
+					</section>
 			</section>
 			<section>
 				<h3>O que é AngularJS?</h3>
