@@ -1,4 +1,5 @@
 var User = require('./model'),
+    Company = require('../company/model'),
   Controller = {};
 
 Controller.getUser = getUser;
@@ -10,7 +11,8 @@ Controller.deleteUser = deleteUser;
 module.exports = Controller;
 
 function getUser(req, res) {
-  User.find({}, function(err, users) {
+  User.find()
+  .populate('company').exec( function(err, users) {
     if (!!err) res.send(err);
     res.json(users);
   })
@@ -18,7 +20,7 @@ function getUser(req, res) {
 
 function getUserById(req, res) {
   var id = req.params.uid;
-  User.findById(id, function(err, user) {
+  User.findById(id).populate('company').exec(function(err, user) {
     if (!!err) res.send(err);
     res.json(user);
   })
@@ -45,7 +47,7 @@ function updateUser(req, res) {
 function saveUser(req, res) {
   var newUser = new User(req.body);
   User.create(newUser, function(err, created) {
-    if (err) res.send(err)
+    if (err) res.send(err);
     res.json({
       content: "OK"
     });

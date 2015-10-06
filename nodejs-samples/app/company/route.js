@@ -1,7 +1,7 @@
 
 var Controller = require('./controller');
 module.exports = function (app) {
-  var url = '/api/movie';
+  var url = '/api/company';
 
   app.get(url, Controller.getCompanies)
 

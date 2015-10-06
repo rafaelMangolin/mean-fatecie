@@ -1,15 +1,18 @@
 var mongoose = require('mongoose');
 
-var CompanySchema = mongoose.Schema({
+var UserSchema = mongoose.Schema({
   name: {
     type: String,
     required: true
   },
-  address: String,
-  users: [{
+  age: {
+    type: Number,
+    required: true
+  },
+  company: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User'
-  }]
+    ref: 'Company'
+  }
 })
 
-module.exports = mongoose.model('Company', CompanySchema);
+module.exports = mongoose.model('User', UserSchema);

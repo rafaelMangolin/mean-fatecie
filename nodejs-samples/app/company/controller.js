@@ -10,7 +10,7 @@ Controller.deleteCompany = deleteCompany;
 module.exports = Controller;
 
 function getCompanies(req, res) {
-  Company.find({}, function(err, companies) {
+  Company.find().populate('users').exec(function(err, companies) {
     if (!!err) res.send(err);
     res.json(companies);
   })
@@ -18,7 +18,7 @@ function getCompanies(req, res) {
 
 function getCompanyById(req, res) {
   var id = req.params.uid;
-  Company.findById(id, function(err, company) {
+  Company.findById(id).populate('users').exec(function(err, company) {
     if (!!err) res.send(err);
     res.json(company);
   })
