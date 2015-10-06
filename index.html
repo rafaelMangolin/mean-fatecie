@@ -15,11 +15,11 @@
 	<link rel="stylesheet" href="lib/css/zenburn.css">
 
 	<script>
-	var link = document.createElement('link');
-	link.rel = 'stylesheet';
-	link.type = 'text/css';
-	link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-	document.getElementsByTagName('head')[0].appendChild(link);
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
 
 	<!--[if lt IE 9]>
@@ -55,7 +55,7 @@
 					</p>
 				</section>
 				<section>
-					<h3>NodeJS</h3>
+					<h3>AngularJS</h3>
 					<p>
 						Framework JavaScript (frontend) para aplicações web SPA (Single Page Applications).
 					</p>
@@ -74,86 +74,53 @@
 				</section>
 				<section>
 					<h3>Comandos Gerais</h3>
-<pre><code class="javascript" data-trim>
-// Usado para acessar o banco de dados
-use database_name
-
-// Lista os bancos criados na instância
-show dbs
-
-// Lista as collections criadas no banco usado
-show collections
-
-// Atribui uma collection a uma variável para ser usada em consultas
-coll = db.collection_name
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							// Usado para acessar o banco de dados use database_name // Lista os bancos criados na instância show dbs // Lista as collections criadas no banco usado show collections // Atribui uma collection a uma variável para ser usada em consultas coll = db.collection_name
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h3><i>find</i></h3>
-<pre><code class="javascript" data-trim>
-// Objecto que define os critérios da consulta
-var query = { field: { $gt: 10 } };
-
-// Objeto que especifica os campos que serão retornados
-var projection = { field: true };
-
-// Executa o find
-db.collection_name.find(query, projection)
-
-// Executa usando atribuição por variável citado no slide anterior
-coll.find(query, projection)
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							// Objecto que define os critérios da consulta var query = { field: { $gt: 10 } }; // Objeto que especifica os campos que serão retornados var projection = { field: true }; // Executa o find db.collection_name.find(query, projection) // Executa usando
+							atribuição por variável citado no slide anterior coll.find(query, projection)
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h3><i>insert</i></h3>
-<pre><code class="javascript" data-trim>
-// Insere um ou mais documentos em determinada collection
-db.collection_name.insert({
-	"name": "Faculdade de Tecnologia e Ciencias do Norte do Paraná",
-	"address": {
-		"street": "R. Getúlio Vargas, 333",
-		"zipcode": "87709-000"
-	},
-	"coords": [ -23.083818, -52.469395 ]
-});
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							// Insere um ou mais documentos em determinada collection db.collection_name.insert({ "name": "Faculdade de Tecnologia e Ciencias do Norte do Paraná", "address": { "street": "R. Getúlio Vargas, 333", "zipcode": "87709-000" }, "coords": [ -23.083818, -52.469395
+							] });
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h3><i>update</i></h3>
-<pre><code class="javascript" data-trim>
-// Atualiza um ou mais documentos em determinada collection
-db.collection_name.update(
-	{
-		"coords": [ -23.083818, -52.469395 ]
-	},
-	{
-		$set: {
-			"name": "Fatecie"
-		}
-	}
-);
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							// Atualiza um ou mais documentos em determinada collection db.collection_name.update( { "coords": [ -23.083818, -52.469395 ] }, { $set: { "name": "Fatecie" } } );
+						</code>
+					</pre>
 				</section>
 				<section>
-				<h3><i>save</i></h3>
-<pre><code class="javascript" data-trim>
-// Atualiza ou insere um ou mais documentos em determinada collection
-db.collection_name.save({
-	"name": "Fatecie",
-	"address": {
-		"street": "R. Getúlio Vargas, 333",
-		"zipcode": "87709-000"
-	},
-	"coords": [ -23.083818, -52.469395 ]
-});
-</code></pre>
+					<h3><i>save</i></h3>
+					<pre>
+						<code class="javascript" data-trim>
+							// Atualiza ou insere um ou mais documentos em determinada collection db.collection_name.save({ "name": "Fatecie", "address": { "street": "R. Getúlio Vargas, 333", "zipcode": "87709-000" }, "coords": [ -23.083818, -52.469395 ] });
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h3><i>remove</i></h3>
-<pre><code class="javascript" data-trim>
-// Remove um ou mais documentos em determinada collection
-db.collection_name.remove({"coords": [ -23.083818, -52.469395 ]});
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							// Remove um ou mais documentos em determinada collection db.collection_name.remove({"coords": [ -23.083818, -52.469395 ]});
+						</code>
+					</pre>
 				</section>
 			</section>
 			<section>
@@ -246,41 +213,53 @@ db.collection_name.remove({"coords": [ -23.083818, -52.469395 ]});
 				<section>
 					<h2>Exemplos</h2>
 					<h4><i>Controller</i></h4>
-<pre><code class="javascript" data-trim>
-angular.module('app.sample',[])
-.controller('ControllerName',['$scope',function($scope){
-	// Código
-}])
-</code></pre>
-<pre><code class="html" data-trim>
-&lt;div ng-controller=&quot;ControllerName&quot;&gt;&lt;/div&gt;
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							angular.module('app.sample',[]) .controller('ControllerName',['$scope',function($scope){ // Código }])
+						</code>
+					</pre>
+					<pre>
+						<code class="html" data-trim>
+							&lt;div ng-controller=&quot;ControllerName&quot;&gt;&lt;/div&gt;
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h2>Exemplos</h2>
 					<h4><i>Service</i></h4>
-<pre><code class="javascript" data-trim>
-angular.module('app.sample',[])
-.service('ServiceName',['$http',function($http){
-	// Código
-}])
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							angular.module('app.sample',[]) .service('ServiceName',['$http',function($http){ // Código }])
+						</code>
+					</pre>
 				</section>
 				<section>
 					<h2>Exemplos</h2>
 					<h4><i>Dependency Injection</i></h4>
-<pre><code class="javascript" data-trim>
-angular.module('app.sample', [
-	'app.marketing',
-	'app.development'
-])
-</code></pre>
+					<pre>
+						<code class="javascript" data-trim>
+							angular.module('app.sample', [ 'app.marketing', 'app.development' ])
+						</code>
+					</pre>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h3>Express</h3>
 				</section>
+				<section>
+					<p>O <strong>Express</strong> é um framework web minimalista utilizada para fazer as <b>rotas</b> da sua aplicação e age como um <strong>middleware</strong>.
+					</p>
+				</section>
+				<section>
+					<h3>O que é um <strong>middleware</strong>?</h3>
+					<img src="imgs/middleware.png" alt="Middleware" width="45%">
+				</section>
+				<section>
+
+				</section>
+				<section></section>
+				<section></section>
 			</section>
 			<section>
 				<section>
@@ -305,47 +284,47 @@ angular.module('app.sample', [
 	<script src="js/reveal.js"></script>
 
 	<script>
-	Reveal.initialize({
-		controls: true,
-		progress: true,
-		history: true,
-		center: true,
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
 
-		transition: 'convex', // none/fade/slide/convex/concave/zoom
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-		// Optional reveal.js plugins
-		dependencies: [{
-			src: 'lib/js/classList.js',
-			condition: function() {
-				return !document.body.classList;
-			}
-		}, {
-			src: 'plugin/markdown/marked.js',
-			condition: function() {
-				return !!document.querySelector('[data-markdown]');
-			}
-		}, {
-			src: 'plugin/markdown/markdown.js',
-			condition: function() {
-				return !!document.querySelector('[data-markdown]');
-			}
-		}, {
-			src: 'plugin/highlight/highlight.js',
-			async: true,
-			condition: function() {
-				return !!document.querySelector('pre code');
-			},
-			callback: function() {
-				hljs.initHighlightingOnLoad();
-			}
-		}, {
-			src: 'plugin/zoom-js/zoom.js',
-			async: true
-		}, {
-			src: 'plugin/notes/notes.js',
-			async: true
-		}]
-	});
+			// Optional reveal.js plugins
+			dependencies: [{
+				src: 'lib/js/classList.js',
+				condition: function() {
+					return !document.body.classList;
+				}
+			}, {
+				src: 'plugin/markdown/marked.js',
+				condition: function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: 'plugin/markdown/markdown.js',
+				condition: function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				condition: function() {
+					return !!document.querySelector('pre code');
+				},
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src: 'plugin/zoom-js/zoom.js',
+				async: true
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}]
+		});
 	</script>
 
 </body>
